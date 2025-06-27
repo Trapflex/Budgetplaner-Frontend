@@ -1,0 +1,9 @@
+.calendar-clock {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.clock {
+  font-weight: bold;
+}
