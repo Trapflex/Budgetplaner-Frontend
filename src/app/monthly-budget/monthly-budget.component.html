@@ -1,0 +1,21 @@
+<div class="budget-form">
+  <h2>Eintrag hinzufügen</h2>
+  <form (submit)="addEntry(); $event.preventDefault()">
+    <input type="text" [(ngModel)]="description" name="description" placeholder="Beschreibung" />
+    <input type="number" [(ngModel)]="amount" name="amount" placeholder="Betrag" />
+    <input type="date" [(ngModel)]="date" name="date" />
+    <button type="submit">Speichern</button>
+  </form>
+</div>
+
+<div class="budget-view">
+  <h2>Einträge {{ selectedMonth }}</h2>
+  <select [(ngModel)]="selectedMonth" (ngModelChange)="refresh()">
+    <option *ngFor="let m of months" [value]="m">{{ m }}</option>
+  </select>
+  <ul>
+    <li *ngFor="let e of entries">
+      {{ e.date }} – {{ e.description }} – {{ e.amount | number:'1.2-2' }}
+    </li>
+  </ul>
+</div>
